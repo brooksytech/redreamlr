@@ -1,6 +1,7 @@
 #include <errno.h>
 #include "core/filesystem.h"
 #include "core/core.h"
+#include "../../../src/libretro-common/include/file/file_path.h"
 
 static char appdir[PATH_MAX];
 

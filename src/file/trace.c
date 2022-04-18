@@ -3,6 +3,7 @@
 #include "core/core.h"
 #include "core/filesystem.h"
 #include "guest/pvr/tr.h"
+#include "../../../src/libretro-common/include/file/file_path.h"
 
 void trace_writer_close(struct trace_writer *writer) {
   if (writer->file) {

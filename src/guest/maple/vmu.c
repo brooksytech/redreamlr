@@ -218,14 +218,5 @@ struct maple_device *vmu_create(struct maple *mp, int port) {
   snprintf(vmu->filename, sizeof(vmu->filename),
            "%s" PATH_SEPARATOR "vmu%d.bin", appdir, port);
 
-  if (!path_is_valid(vmu->filename)) {
-    LOG_INFO("vmu_create initializing %s", vmu->filename);
-
-    FILE *file = fopen(vmu->filename, "wb");
-    CHECK_NOTNULL(file, "failed to open %s", vmu->filename);
-    fwrite(vmu_default, 1, sizeof(vmu_default), file);
-    fclose(file);
-  }
-
   return (struct maple_device *)vmu;
 }

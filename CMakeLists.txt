@@ -22,19 +22,11 @@ if(NOT CMAKE_BUILD_TYPE)
     "Choose the type of build, options are: Debug Release RelWithDebInfo MinSizeRel." FORCE)
 endif()
 
-option(BUILD_LIBRETRO "Build libretro core" OFF)
+option(BUILD_LIBRETRO "Build libretro core" ON)
 option(BUILD_TOOLS "Build tools" OFF)
 option(BUILD_TESTS "Build tests" OFF)
 
-if(WIN32 OR MINGW)
-  set(PLATFORM_WINDOWS TRUE)
-elseif(ANDROID)
-  set(PLATFORM_ANDROID TRUE)
-elseif(APPLE)
-  set(PLATFORM_DARWIN TRUE)
-elseif(UNIX)
-  set(PLATFORM_LINUX TRUE)
-endif()
+set(PLATFORM_LINUX TRUE)
 
 if("${CMAKE_C_COMPILER_ID}" STREQUAL "MSVC")
   set(COMPILER_MSVC TRUE)
@@ -44,11 +36,7 @@ elseif("${CMAKE_C_COMPILER_ID}" STREQUAL "GNU")
   set(COMPILER_GCC TRUE)
 endif()
 
-if(PLATFORM_ANDROID)
-  set(ARCH_A64 TRUE)
-else()
-  set(ARCH_X64 TRUE)
-endif()
+set(ARCH_A64 TRUE)
 
 if(BUILD_LIBRETRO)
   # building the libretro core requires PIC code for all object files
@@ -85,7 +73,7 @@ list(APPEND RELIB_DEFS HAVE_CONFIG_H)
 
 # capstone
 set(CAPSTONE_ARM_SUPPORT OFF CACHE BOOL "")
-set(CAPSTONE_ARM64_SUPPORT OFF CACHE BOOL "")
+set(CAPSTONE_ARM64_SUPPORT ON CACHE BOOL "")
 set(CAPSTONE_MIPS_SUPPORT OFF CACHE BOOL "")
 set(CAPSTONE_PPC_SUPPORT OFF CACHE BOOL "")
 set(CAPSTONE_SPARC_SUPPORT OFF CACHE BOOL "")
@@ -322,7 +310,7 @@ elseif(COMPILER_GCC OR COMPILER_CLANG)
     # used for unnamed structure fields
     -fms-extensions
     # enable most errors
-    -Wall -Wextra -Werror
+    -Wall -Wextra
     # lax some of these common development warnings
     -Wno-unused-function -Wno-unused-parameter -Wno-unused-variable -Wno-strict-aliasing
     -D_GNU_SOURCE)

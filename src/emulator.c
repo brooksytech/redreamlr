@@ -764,18 +764,18 @@ struct emu *emu_create(struct host *host) {
   }
 
   /* enable the cpu / gpu to be emulated in parallel */
-  emu->multi_threaded = 1;
+ // emu->multi_threaded = 1;
 
-  if (emu->multi_threaded) {
-    emu->state = EMU_WAITING;
+ // if (emu->multi_threaded) {
+ //   emu->state = EMU_WAITING;
     //emu->req_mutex = slock_new();
-    emu->req_cond = scond_new();
+  //  emu->req_cond = scond_new();
     //emu->res_mutex = slock_new();
-    emu->res_cond = scond_new();
+  //  emu->res_cond = scond_new();
 
-    emu->run_thread = sthread_create(&emu_run_thread, emu);
-    CHECK_NOTNULL(emu->run_thread);
-  }
+    //emu->run_thread = sthread_create(&emu_run_thread, emu);
+   // CHECK_NOTNULL(emu->run_thread);
+  //}
 
   /* set initial aspect ratio */
   emu_set_aspect_ratio(emu, OPTION_aspect);

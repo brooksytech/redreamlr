@@ -768,9 +768,9 @@ struct emu *emu_create(struct host *host) {
 
   if (emu->multi_threaded) {
     emu->state = EMU_WAITING;
-    emu->req_mutex = slock_new();
+    //emu->req_mutex = slock_new();
     emu->req_cond = scond_new();
-    emu->res_mutex = slock_new();
+    //emu->res_mutex = slock_new();
     emu->res_cond = scond_new();
 
     emu->run_thread = sthread_create(&emu_run_thread, emu);

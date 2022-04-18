@@ -19,7 +19,7 @@ CAPSTONE_HAS_ARM64=0
 UNAME=$(shell uname -a)
 
 # Dirs
-LIBRETRO_DIR := $(ROOT_DIR)/deps/libretro
+LIBRETRO_DIR := deps/libretro
 
 ifeq ($(platform),)
    platform = unix

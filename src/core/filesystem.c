@@ -62,16 +62,6 @@ void fs_dirname(const char *path, char *dir, size_t size) {
   dir[n] = 0;
 }
 
-void fs_set_appdir(const char *path) {
-  strncpy(appdir, path, sizeof(appdir));
-
-  if (!path_mkdir(appdir)) {
-    LOG_FATAL("fs_set_appdir failed to create %s", appdir);
-  }
-
-  LOG_INFO("fs_set_appdir path=%s", path);
-}
-
 const char *fs_appdir() {
   return appdir;
 }

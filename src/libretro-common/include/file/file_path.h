@@ -504,6 +504,16 @@ void fill_pathname_home_dir(char *buf, size_t size);
 #endif
 
 /**
+ * path_mkdir:
+ * @dir                : directory
+ *
+ * Create directory on filesystem.
+ *
+ * Returns: true (1) if directory could be created, otherwise false (0).
+ **/
+bool path_mkdir(const char *dir);
+
+/**
  * path_is_directory:
  * @path               : path
  *

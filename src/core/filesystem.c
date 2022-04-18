@@ -1,4 +1,3 @@
-#include <stdio.h>
 #include <errno.h>
 #include "core/filesystem.h"
 #include "core/core.h"

@@ -27,8 +27,8 @@
 #define RARCH_MAX_SUBSYSTEM_ROMS 10
 
 #include <stdint.h>
-#include <boolean.h>
-#include <retro_inline.h>
+#include "boolean.h"
+#include "retro_inline.h"
 
 #if defined(_WIN32)
 

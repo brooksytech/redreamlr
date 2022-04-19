@@ -131,7 +131,7 @@ ifneq (,$(findstring unix,$(platform)))
       GLES = 1
       GL_LIB := -lGLESv2
       CPUFLAGS += -DNO_ASM -DARM -D__arm__ -DARM_ASM -D__NEON_OPT -DNOSSE
-      CPUFLAGS += -mcpu=cortex-a72.cortex-a53 -mfloat-abi=hard
+      CPUFLAGS += -mcpu=cortex-a72.cortex-a53 -mfloat-abi=hard -mfpu=crypto-neon-fp-armv8
       HAVE_NEON = 1
       WITH_DYNAREC=arm
    endif
